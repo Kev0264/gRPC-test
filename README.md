@@ -1,4 +1,4 @@
-# gRPC-test
+# gRPC Test Project
 
 ## **Key Features Showcased**
 
