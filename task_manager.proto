@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package task_manager;
+
+// Define the Task message
+message Task {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+  bool completed = 4;
+}
+
+// Define the service
+service TaskManager {
+    // Add a new task
+    rpc AddTask(AddTaskRequest) returns (AddTaskResponse);
+
+    // List all tasks
+    rpc ListTasks(ListTasksRequest) returns (ListTasksResponse);
+
+    // Mark a task as completed
+    rpc CompleteTask(CompleteTaskRequest) returns (CompleteTaskResponse);
+}
+
+// Request and response messages
+message AddTaskRequest {
+    string title = 1;
+    string description = 2;
+}
+
+message AddTaskResponse {
+    Task task = 1;
+}
+
+message ListTasksRequest {}
+
+message ListTasksResponse {
+    repeated Task tasks = 1;
+}
+
+message CompleteTaskRequest {
+    string id = 1;
+}
+
+message CompleteTaskResponse {
+    Task task = 1;
+}
